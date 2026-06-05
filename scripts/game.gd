@@ -1,18 +1,21 @@
 extends Node
 
-@onready var ball: CharacterBody2D = $Ball
-@onready var left_paddle: CharacterBody2D = $LeftPaddle
-@onready var right_paddle: CharacterBody2D = $RightPaddle
-@onready var left_xp_bar: XPBar = $LeftXP
-@onready var right_xp_bar: XPBar = $RightXP
-@onready var wall_top: RigidBody2D = $TopWall
-@onready var wall_bottom: RigidBody2D = $BottomWall
-@onready var upgrade_popup: UpgradePopup = $UpgradePopup
+# Game nodes
+@onready var ball: CharacterBody2D = $Game/Ball
+@onready var left_paddle: CharacterBody2D = $Game/LeftPaddle
+@onready var right_paddle: CharacterBody2D = $Game/RightPaddle
+@onready var top_boundary: ObjectBoundary = $Game/TopBoundary
+@onready var bottom_boundary: ObjectBoundary = $Game/BottomBoundary
+
+# UI nodes
+@onready var left_xp_bar: XPBar = $UI/HUD/LeftXP
+@onready var right_xp_bar: XPBar = $UI/HUD/RightXP
+@onready var upgrade_popup: UpgradePopup = $UI/Popups/UpgradePopup
 
 @onready var barriers_left: Array[Node2D] = [
-	$ObjectBarrier,
-	$ObjectBarrier2,
-	$ObjectBarrier3,
+	$Game/ObjectBarrier,
+	$Game/ObjectBarrier2,
+	$Game/ObjectBarrier3,
 ]
 
 var left_xp: XP = XP.new()
@@ -26,6 +29,9 @@ func _ready() -> void:
 	ball.connect("out_of_bounds", self._on_ball_out_of_bounds)
 	left_xp.init(left_xp_bar)
 	right_xp.init(right_xp_bar)
+	
+	top_boundary.anchor_top()
+	bottom_boundary.anchor_bottom()
 
 func _on_ball_out_of_bounds(side: Globals.Side) -> void:
 	if side == Globals.Side.LEFT:

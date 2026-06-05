@@ -4,17 +4,18 @@
 [ext_resource type="Script" uid="uid://dhurjxnl70g2a" path="res://scripts/object_paddle.gd" id="1_l8me2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8me2"]
-size = Vector2(9.636692, 145.68506)
+size = Vector2(19.273384, 290.7213)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=875451351]
 script = ExtResource("1_l8me2")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=130433589]
+texture_filter = 1
+rotation = 1.5707964
+scale = Vector2(4, 4)
+texture = ExtResource("1_e0cux")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=71555746]
-position = Vector2(0, -0.16068071)
+position = Vector2(0, 3.8146973e-06)
 scale = Vector2(1.6603208, 0.9906395)
 shape = SubResource("RectangleShape2D_l8me2")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=130433589]
-rotation = 1.5707964
-scale = Vector2(2, 2)
-texture = ExtResource("1_e0cux")

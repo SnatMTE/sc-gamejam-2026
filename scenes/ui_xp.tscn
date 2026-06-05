@@ -19,16 +19,16 @@ corner_radius_bottom_left = 32
 [node name="Control" type="Control" unique_id=969234331]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 431.0
+offset_bottom = 60.0
 script = ExtResource("1_x810x")
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=1587804909]
 layout_mode = 0
-offset_left = 73.0
-offset_top = 13.0
-offset_right = 316.0
-offset_bottom = 38.0
+offset_left = 56.0
+offset_top = 14.0
+offset_right = 360.0
+offset_bottom = 50.0
 theme_override_styles/background = SubResource("StyleBoxFlat_x810x")
 theme_override_styles/fill = SubResource("StyleBoxFlat_pvp5q")
 value = 50.0
@@ -36,24 +36,24 @@ show_percentage = false
 
 [node name="LevelLabel" type="Label" parent="." unique_id=1273996238]
 layout_mode = 0
-offset_left = 324.0
-offset_top = 11.0
-offset_right = 427.0
-offset_bottom = 46.0
+offset_left = 375.0
+offset_top = 14.0
+offset_right = 478.0
+offset_bottom = 49.0
 theme_override_colors/font_outline_color = Color(0.15349513, 0.1677776, 0.23295239, 1)
 theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 24
 text = "Lvl 0"
 autowrap_trim_flags = 0
 justification_flags = 161
 
 [node name="Label" type="Label" parent="." unique_id=375604074]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 11.0
-offset_right = 72.0
-offset_bottom = 39.0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 75.0
+offset_bottom = 54.0
 theme_override_colors/font_outline_color = Color(0.15349513, 0.1677776, 0.23295239, 1)
 theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 24
 text = "XP"

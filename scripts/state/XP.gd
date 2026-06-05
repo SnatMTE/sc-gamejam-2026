@@ -1,4 +1,4 @@
-﻿class_name XP
+class_name XP
 
 const DEFAULT_XP_REWARD: int = 34
 const XP_PER_LEVEL: int = 100

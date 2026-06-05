@@ -4,13 +4,15 @@
 [ext_resource type="Script" uid="uid://bonvtbcmc67vn" path="res://scripts/object_ball.gd" id="1_p5t3g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p5t3g"]
-radius = 7.0
+radius = 12.0415945
 
 [node name="ObjectBall" type="CharacterBody2D" unique_id=1740807801]
 script = ExtResource("1_p5t3g")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=147203666]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_h7wy3")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1027892150]
 shape = SubResource("CircleShape2D_p5t3g")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=147203666]
-texture = ExtResource("1_h7wy3")
