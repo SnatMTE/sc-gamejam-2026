@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://d2qy5lobtcrqh"]
+
+[ext_resource type="Script" uid="uid://dqmi5kvtomqtc" path="res://scripts/ui_upgrade_popup.gd" id="1_d56iq"]
+
+[node name="UpgradePopup" type="Control" unique_id=1975352790]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_d56iq")
+
+[node name="Background" type="ColorRect" parent="." unique_id=332353431]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.65)
+
+[node name="Panel" type="Panel" parent="." unique_id=366238306]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -160.0
+offset_right = 249.0
+offset_bottom = 172.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=78323032]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 430.0
+offset_bottom = 300.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1252569003]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1597808548]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "LEVEL UP!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1549211621]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Choose an upgrade:"
+horizontal_alignment = 1
+
+[node name="UpgradeList" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=1945314020]
+layout_mode = 2
+
+[node name="BarrierButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/UpgradeList" unique_id=2053292464]
+process_mode = 3
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Enable Barriers"
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/UpgradeList/BarrierButton" to="." method="_on_barrier_button_pressed"]

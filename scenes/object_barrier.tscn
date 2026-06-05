@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ble5ffrnndfpd"]
+
+[ext_resource type="Script" uid="uid://b24yykcjn2n06" path="res://scripts/object_barrier.gd" id="1_ijpqb"]
+[ext_resource type="Texture2D" uid="uid://c11jt55o1fdlo" path="res://images/pong/block_pink.png" id="1_o805t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o805t"]
+size = Vector2(90, 32)
+
+[node name="ObjectBarrier" type="Node2D" unique_id=710530902]
+script = ExtResource("1_ijpqb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1654875556]
+scale = Vector2(2.9666667, 2)
+texture = ExtResource("1_o805t")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=214459921]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=749799774]
+shape = SubResource("RectangleShape2D_o805t")

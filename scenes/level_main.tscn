@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://dpeecta8tshwt"]
+
+[ext_resource type="Script" uid="uid://c3ucw2bualwxn" path="res://scripts/game.gd" id="1_3ds44"]
+[ext_resource type="PackedScene" uid="uid://c0nxwtttcx2ws" path="res://scenes/object_paddle.tscn" id="1_pa81q"]
+[ext_resource type="PackedScene" uid="uid://cqkxdobk3rdb4" path="res://scenes/object_wall.tscn" id="2_me3yj"]
+[ext_resource type="PackedScene" uid="uid://cb7je46vmtgab" path="res://scenes/object_ball.tscn" id="3_pjtly"]
+[ext_resource type="PackedScene" uid="uid://bclbec7nrkogm" path="res://scenes/ui_xp.tscn" id="4_61vrw"]
+[ext_resource type="PackedScene" uid="uid://ble5ffrnndfpd" path="res://scenes/object_barrier.tscn" id="6_qexrl"]
+[ext_resource type="PackedScene" uid="uid://d2qy5lobtcrqh" path="res://scenes/ui_upgrade_popup.tscn" id="7_0np0d"]
+
+[node name="Node2D" type="Node2D" unique_id=298824703]
+script = ExtResource("1_3ds44")
+
+[node name="PaddleLeft" parent="." unique_id=1900230561 instance=ExtResource("1_pa81q")]
+position = Vector2(52, 282)
+
+[node name="PaddleRight" parent="." unique_id=714213283 instance=ExtResource("1_pa81q")]
+position = Vector2(1093, 295)
+side = 1
+
+[node name="Ball" parent="." unique_id=1232558945 instance=ExtResource("3_pjtly")]
+position = Vector2(528, 278)
+speed = 500
+
+[node name="WallTop" parent="." unique_id=1013006706 instance=ExtResource("2_me3yj")]
+
+[node name="WallBottom" parent="." unique_id=810694443 instance=ExtResource("2_me3yj")]
+position = Vector2(0, 668)
+
+[node name="LeftXP" parent="." unique_id=1587804909 instance=ExtResource("4_61vrw")]
+offset_left = 36.0
+offset_top = 18.0
+offset_right = 445.0
+offset_bottom = 76.0
+
+[node name="RightXP" parent="." unique_id=969234331 instance=ExtResource("4_61vrw")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 747.0
+offset_top = 18.0
+offset_right = 1140.0
+offset_bottom = 73.0
+grow_horizontal = 0
+
+[node name="ObjectBarrier" parent="." unique_id=710530902 instance=ExtResource("6_qexrl")]
+visible = false
+position = Vector2(103.00001, 112.000015)
+rotation = -4.1887903
+
+[node name="ObjectBarrier3" parent="." unique_id=1777686496 instance=ExtResource("6_qexrl")]
+visible = false
+position = Vector2(83, 295)
+rotation = 1.5707964
+
+[node name="ObjectBarrier2" parent="." unique_id=1304930189 instance=ExtResource("6_qexrl")]
+visible = false
+position = Vector2(103.00001, 514.00006)
+rotation = -5.2359877
+
+[node name="UpgradePopup" parent="." unique_id=1975352790 instance=ExtResource("7_0np0d")]
+visible = false
+offset_left = 590.0
+offset_top = 323.0
+offset_right = 590.0
+offset_bottom = 323.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="upgrade_selected" from="UpgradePopup" to="." method="_on_upgrade_selected"]
