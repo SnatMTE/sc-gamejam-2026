@@ -1,14 +1,13 @@
 extends Node
 
-const DEFAULT_XP_REWARD = 34
-const XP_PER_LEVEL = 100
-
-@onready var ball = $Ball
-@onready var left_paddle = $LeftPaddle
-@onready var right_paddle = $RightPaddle
+@onready var ball: CharacterBody2D = $Ball
+@onready var left_paddle: CharacterBody2D = $LeftPaddle
+@onready var right_paddle: CharacterBody2D = $RightPaddle
 @onready var left_xp_bar: XPBar = $LeftXP
 @onready var right_xp_bar: XPBar = $RightXP
-@onready var upgrade_popup = $UpgradePopup
+@onready var wall_top: RigidBody2D = $TopWall
+@onready var wall_bottom: RigidBody2D = $BottomWall
+@onready var upgrade_popup: UpgradePopup = $UpgradePopup
 
 @onready var barriers_left: Array[Node2D] = [
 	$ObjectBarrier,
@@ -16,11 +15,8 @@ const XP_PER_LEVEL = 100
 	$ObjectBarrier3,
 ]
 
-var left_xp = 0
-var right_xp = 0
-
-var left_level = 1
-var right_level = 1
+var left_xp: XP = XP.new()
+var right_xp: XP = XP.new()
 
 # Track which upgrades have been applied for each side
 var left_upgrades: Dictionary = {}
@@ -28,31 +24,14 @@ var right_upgrades: Dictionary = {}
 
 func _ready() -> void:
 	ball.connect("out_of_bounds", self._on_ball_out_of_bounds)
-	left_xp_bar.set_xp(left_xp)
-	right_xp_bar.set_xp(right_xp)
-	left_xp_bar.set_level(left_level)
-	right_xp_bar.set_level(right_level)
+	left_xp.init(left_xp_bar)
+	right_xp.init(right_xp_bar)
 
 func _on_ball_out_of_bounds(side: Globals.Side) -> void:
 	if side == Globals.Side.LEFT:
-		right_xp += DEFAULT_XP_REWARD
-		right_xp_bar.set_xp(right_xp)
-
-		if right_xp >= XP_PER_LEVEL:
-			right_level += 1
-			right_xp = 0
-			right_xp_bar.set_xp(right_xp)
-			right_xp_bar.set_level(right_level)
+		if right_xp.award_xp():
 			_show_upgrade_popup(Globals.Side.RIGHT)
-	else:
-		left_xp += DEFAULT_XP_REWARD
-		left_xp_bar.set_xp(left_xp)
-
-		if left_xp >= XP_PER_LEVEL:
-			left_level += 1
-			left_xp = 0
-			left_xp_bar.set_xp(left_xp)
-			left_xp_bar.set_level(left_level)
+	elif left_xp.award_xp():
 			_show_upgrade_popup(Globals.Side.LEFT)
 
 func _show_upgrade_popup(side: Globals.Side) -> void:
@@ -70,7 +49,7 @@ func _on_upgrade_selected(side: Globals.Side, upgrade_name: String) -> void:
 	get_tree().paused = false
 
 func _apply_barrier_upgrade(side: Globals.Side) -> void:
-	var upgrades = left_upgrades if side == Globals.Side.LEFT else right_upgrades
+	var upgrades: Dictionary = left_upgrades if side == Globals.Side.LEFT else right_upgrades
 	if upgrades.get("barriers", false):
 		return  # Already applied
 

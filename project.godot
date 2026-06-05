@@ -24,11 +24,16 @@ Globals="*uid://yr3eankf46ux"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 window/stretch/scale=1.65
 
 [dotnet]
 
 project/assembly_name="Pong"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/rider-plugin/plugin.cfg")
 
 [input]
 

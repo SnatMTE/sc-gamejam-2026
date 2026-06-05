@@ -11,10 +11,10 @@
 [node name="Node2D" type="Node2D" unique_id=298824703]
 script = ExtResource("1_3ds44")
 
-[node name="PaddleLeft" parent="." unique_id=1900230561 instance=ExtResource("1_pa81q")]
-position = Vector2(52, 282)
+[node name="LeftPaddle" parent="." unique_id=1900230561 instance=ExtResource("1_pa81q")]
+position = Vector2(52, 283)
 
-[node name="PaddleRight" parent="." unique_id=714213283 instance=ExtResource("1_pa81q")]
+[node name="RightPaddle" parent="." unique_id=714213283 instance=ExtResource("1_pa81q")]
 position = Vector2(1093, 295)
 side = 1
 
@@ -22,9 +22,9 @@ side = 1
 position = Vector2(528, 278)
 speed = 500
 
-[node name="WallTop" parent="." unique_id=1013006706 instance=ExtResource("2_me3yj")]
+[node name="TopWall" parent="." unique_id=1013006706 instance=ExtResource("2_me3yj")]
 
-[node name="WallBottom" parent="." unique_id=810694443 instance=ExtResource("2_me3yj")]
+[node name="BottomWall" parent="." unique_id=810694443 instance=ExtResource("2_me3yj")]
 position = Vector2(0, 668)
 
 [node name="LeftXP" parent="." unique_id=1587804909 instance=ExtResource("4_61vrw")]
